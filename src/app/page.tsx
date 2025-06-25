@@ -40,7 +40,7 @@ export default function HHComputerSolutions() {
   }
 
   // Smooth scroll function
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
