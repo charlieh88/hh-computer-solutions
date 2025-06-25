@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Code, DollarSign, Globe, Award, Users, Clock, CheckCircle, Menu, X, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 
@@ -120,7 +120,7 @@ export default function HHComputerSolutions() {
           transform: 'scale(1)'
         }}
       >
-        <img 
+        <Image width={800} height={800} 
           src="/hh-logo-large.png" 
           alt="H&H Background Logo" 
           className="w-[800px] h-[800px] object-contain"
@@ -145,7 +145,7 @@ export default function HHComputerSolutions() {
               {/* Logo */}
               <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3 group">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg overflow-hidden">
-                  <img 
+                  <Image width={44} height={44} 
                     src="/hh-logo.png" 
                     alt="H&H Logo" 
                     className="w-11 h-11 object-contain"
@@ -434,7 +434,7 @@ export default function HHComputerSolutions() {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Constantly Reachable</h3>
-                  <p className="text-gray-600">Direct access to our personal phones and emails at any time. We're always here when you need us.</p>
+                  <p className="text-gray-600">Direct access to our personal phones and emails at any time. We&apos;re always here when you need us.</p>
                 </div>
                 
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -481,7 +481,7 @@ export default function HHComputerSolutions() {
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Let's discuss your project and bring your vision to life
+                Let&apos;s discuss your project and bring your vision to life
               </p>
             </div>
 
@@ -640,7 +640,7 @@ ${firstName} ${lastName}`;
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-6">
                   <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                    <img 
+                    <Image width={36} height={36} 
                       src="/hh-logo.png" 
                       alt="H&H Logo" 
                       className="w-9 h-9 object-contain"
