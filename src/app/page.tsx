@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Code, DollarSign, Globe, Award, Users, Clock, CheckCircle, Menu, X, ArrowRight, Star, Phone, Mail, MapPin } from 'lucide-react';
+import { ChevronRight, Code, DollarSign, Globe, Award, Users, Clock, CheckCircle, Menu, X, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
 
 export default function HHComputerSolutions() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
