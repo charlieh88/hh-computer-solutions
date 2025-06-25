@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, Code, DollarSign, Globe, Award, Users, Clock, CheckCircle, Menu, X, ArrowRight, Star, Phone, Mail, MapPin } from 'lucide-react';
+import { ChevronRight, Code, DollarSign, Globe, Award, Users, Clock, CheckCircle, Menu, X, ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HHComputerSolutions() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -120,9 +121,11 @@ export default function HHComputerSolutions() {
           transform: 'scale(1)'
         }}
       >
-        <img 
+        <Image 
           src="/hh-logo-large.png" 
           alt="H&H Background Logo" 
+          width={800}
+          height={800}
           className="w-[800px] h-[800px] object-contain"
         />
       </div>
@@ -145,9 +148,11 @@ export default function HHComputerSolutions() {
               {/* Logo */}
               <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3 group">
                 <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg overflow-hidden">
-                  <img 
+                  <Image 
                     src="/hh-logo.png" 
                     alt="H&H Logo" 
+                    width={44}
+                    height={44}
                     className="w-11 h-11 object-contain"
                   />
                 </div>
@@ -434,7 +439,7 @@ export default function HHComputerSolutions() {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Constantly Reachable</h3>
-                  <p className="text-gray-600">Direct access to our personal phones and emails at any time. We're always here when you need us.</p>
+                  <p className="text-gray-600">Direct access to our personal phones and emails at any time. We&apos;re always here when you need us.</p>
                 </div>
                 
                 <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -481,7 +486,7 @@ export default function HHComputerSolutions() {
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Let's discuss your project and bring your vision to life
+                Let&apos;s discuss your project and bring your vision to life
               </p>
             </div>
 
@@ -496,7 +501,104 @@ export default function HHComputerSolutions() {
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900">Charlie</div>
+                    <div className="block text-sm font-medium text-gray-700 mb-2">Message</div>
+                    <textarea 
+                      rows={4}
+                      id="message"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
+                      placeholder="Tell us about your project..."
+                    ></textarea>
+                  </div>
+                  
+                  <button 
+                    type="button"
+                    onClick={() => {
+                      const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
+                      const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
+                      const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
+                      const projectType = (document.getElementById('projectType') as HTMLSelectElement)?.value || '';
+                      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+                      
+                      const subject = `New Project Inquiry - ${projectType}`;
+                      const body = `Hello H&H Computer Solutions,
+
+I would like to inquire about your services.
+
+Name: ${firstName} ${lastName}
+Email: ${email}
+Project Type: ${projectType}
+
+Message:
+${message}
+
+Best regards,
+${firstName} ${lastName}`;
+                      
+                      const mailtoLink = `mailto:hhcomputersolutions@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                      window.location.href = mailtoLink;
+                    }}
+                    className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white py-4 rounded-xl font-medium text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="bg-gray-900 text-white py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {/* Company Info */}
+              <div className="md:col-span-2">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                    <Image 
+                      src="/hh-logo.png" 
+                      alt="H&H Logo" 
+                      width={36}
+                      height={36}
+                      className="w-9 h-9 object-contain"
+                    />
+                  </div>
+                  <span className="text-xl font-bold">H&H Computer Solutions</span>
+                </div>
+                <p className="text-gray-400 leading-relaxed max-w-md">
+                  Professional web development services that help businesses succeed online. 
+                  From concept to deployment, we create websites that work.
+                </p>
+              </div>
+              
+              {/* Contact */}
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Contact</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li>Charlie: +44 7557 352766</li>
+                  <li>Clarke: +44 7557 945136</li>
+                  <li>
+                    <a 
+                      href="mailto:hhcomputersolutions@outlook.com"
+                      className="hover:text-white transition-colors underline"
+                    >
+                      hhcomputersolutions@outlook.com
+                    </a>
+                  </li>
+                  <li>Available Worldwide</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
+              <p>&copy; 2025 H&H Computer Solutions. All rights reserved.</p>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  );
+}  <div className="text-lg font-semibold text-gray-900">Charlie</div>
                       <div className="text-gray-600">+44 7557 352766</div>
                     </div>
                   </div>
@@ -586,99 +688,3 @@ export default function HHComputerSolutions() {
                   </div>
                   
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 mb-2">Message</div>
-                    <textarea 
-                      rows={4}
-                      id="message"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
-                      placeholder="Tell us about your project..."
-                    ></textarea>
-                  </div>
-                  
-                  <button 
-                    type="button"
-                    onClick={() => {
-                      const firstName = (document.getElementById('firstName') as HTMLInputElement)?.value || '';
-                      const lastName = (document.getElementById('lastName') as HTMLInputElement)?.value || '';
-                      const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
-                      const projectType = (document.getElementById('projectType') as HTMLSelectElement)?.value || '';
-                      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
-                      
-                      const subject = `New Project Inquiry - ${projectType}`;
-                      const body = `Hello H&H Computer Solutions,
-
-I would like to inquire about your services.
-
-Name: ${firstName} ${lastName}
-Email: ${email}
-Project Type: ${projectType}
-
-Message:
-${message}
-
-Best regards,
-${firstName} ${lastName}`;
-                      
-                      const mailtoLink = `mailto:hhcomputersolutions@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                      window.location.href = mailtoLink;
-                    }}
-                    className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white py-4 rounded-xl font-medium text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-gray-900 text-white py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Company Info */}
-              <div className="md:col-span-2">
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                    <img 
-                      src="/hh-logo.png" 
-                      alt="H&H Logo" 
-                      className="w-9 h-9 object-contain"
-                    />
-                  </div>
-                  <span className="text-xl font-bold">H&H Computer Solutions</span>
-                </div>
-                <p className="text-gray-400 leading-relaxed max-w-md">
-                  Professional web development services that help businesses succeed online. 
-                  From concept to deployment, we create websites that work.
-                </p>
-              </div>
-              
-              {/* Contact */}
-              <div>
-                <h3 className="text-lg font-semibold mb-4">Contact</h3>
-                <ul className="space-y-2 text-gray-400">
-                  <li>Charlie: +44 7557 352766</li>
-                  <li>Clarke: +44 7557 945136</li>
-                  <li>
-                    <a 
-                      href="mailto:hhcomputersolutions@outlook.com"
-                      className="hover:text-white transition-colors underline"
-                    >
-                      hhcomputersolutions@outlook.com
-                    </a>
-                  </li>
-                  <li>Available Worldwide</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-              <p>&copy; 2025 H&H Computer Solutions. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </div>
-  );
-}
