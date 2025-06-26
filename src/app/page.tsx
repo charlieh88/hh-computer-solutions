@@ -502,7 +502,7 @@ export default function HHComputerSolutions() {
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900">Charlie</div>
+                      <div className="text-lg font-semibold text-gray-900">Charlie Hines</div>
                       <div className="text-gray-600">+44 7557 352766</div>
                     </div>
                   </div>
@@ -512,7 +512,7 @@ export default function HHComputerSolutions() {
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <div className="text-lg font-semibold text-gray-900">Clarke</div>
+                      <div className="text-lg font-semibold text-gray-900">Clarke Hines</div>
                       <div className="text-gray-600">+44 7557 945136</div>
                     </div>
                   </div>
@@ -547,6 +547,15 @@ export default function HHComputerSolutions() {
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
+		<div>
+                      <div className="block text-sm font-medium text-gray-700 mb-2">First Name</div>
+                      <input 
+                        type="text" 
+                        id="firstName"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
+                        placeholder="John"
+                      />
+                    </div>
                     <div>
                       <div className="block text-sm font-medium text-gray-700 mb-2">Last Name</div>
                       <input 
@@ -559,7 +568,7 @@ export default function HHComputerSolutions() {
                   </div>
                   
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 mb-2">Email</div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                     <input 
                       type="email" 
                       id="email"
@@ -569,7 +578,7 @@ export default function HHComputerSolutions() {
                   </div>
                   
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 mb-2">Project Type</div>
+                    <label htmlFor="projectType" className="block text-sm font-medium text-gray-700 mb-2">Project Type</label>
                     <select 
                       id="projectType"
                       className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
@@ -582,7 +591,7 @@ export default function HHComputerSolutions() {
                   </div>
                   
                   <div>
-                    <div className="block text-sm font-medium text-gray-700 mb-2">Message</div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                     <textarea 
                       rows={4}
                       id="message"
@@ -655,8 +664,8 @@ ${firstName} ${lastName}`;
               <div>
                 <h3 className="text-lg font-semibold mb-4">Contact</h3>
                 <ul className="space-y-2 text-gray-400">
-                  <li>Charlie: +44 7557 352766</li>
-                  <li>Clarke: +44 7557 945136</li>
+                  <li>Charlie Hines: +44 7557 352766</li>
+                  <li>Clarke Hines: +44 7557 945136</li>
                   <li>
                     <a 
                       href="mailto:hhcomputersolutions@outlook.com"
