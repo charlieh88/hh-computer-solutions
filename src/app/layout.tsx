@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      url: '/favicon-light.png',
+      url: '/favicon.ico',
       media: '(prefers-color-scheme: light)',
       sizes: '32x32',
       type: 'image/png',
