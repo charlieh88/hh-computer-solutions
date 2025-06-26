@@ -36,7 +36,9 @@ export default function HHComputerSolutions() {
 
   // Don't render anything until mounted to prevent hydration issues
   if (!isMounted) {
-    return null;
+    return <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="text-2xl font-bold text-gray-900">Loading...</div>
+    </div>;
   }
 
   // Smooth scroll function
@@ -120,11 +122,17 @@ export default function HHComputerSolutions() {
           transform: 'scale(1)'
         }}
       >
-        <Image width={800} height={800} 
-          src="/hh-logo-large.png" 
-          alt="H&H Background Logo" 
-          className="w-[800px] h-[800px] object-contain"
-        />
+        <div className="w-[800px] h-[800px] relative">
+          <Image 
+            src="/hh-logo-large.png" 
+            alt="H&H Background Logo" 
+            fill
+            sizes="800px"
+            className="object-contain"
+            priority
+            onError={() => console.log('Background logo failed to load')}
+          />
+        </div>
       </div>
 
       {/* Content Overlay */}
@@ -144,11 +152,14 @@ export default function HHComputerSolutions() {
             <div className="flex items-center justify-between h-20">
               {/* Logo */}
               <button onClick={() => scrollToSection('home')} className="flex items-center space-x-3 group">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg overflow-hidden">
-                  <Image width={44} height={44} 
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg overflow-hidden relative">
+                  <Image 
                     src="/hh-logo.png" 
                     alt="H&H Logo" 
-                    className="w-11 h-11 object-contain"
+                    width={44} 
+                    height={44}
+                    className="object-contain"
+                    onError={() => console.log('Header logo failed to load')}
                   />
                 </div>
                 <div>
@@ -356,7 +367,6 @@ export default function HHComputerSolutions() {
             <div className="grid md:grid-cols-2 gap-12">
               {portfolioProjects.map((project) => (
                 <div key={project.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100">
-                  {/* Project Content - No Image */}
                   <div className="p-8">
                     <div className="flex items-center justify-between mb-4">
                       <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
@@ -371,7 +381,6 @@ export default function HHComputerSolutions() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-4">{project.title}</h3>
                     <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
                     
-                    {/* Features */}
                     <div className="grid grid-cols-2 gap-3 mb-6">
                       {project.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center space-x-2">
@@ -381,7 +390,6 @@ export default function HHComputerSolutions() {
                       ))}
                     </div>
                     
-                    {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {project.tech.map((tech, idx) => (
                         <span key={idx} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-lg text-sm">
@@ -390,7 +398,6 @@ export default function HHComputerSolutions() {
                       ))}
                     </div>
                     
-                    {/* URL */}
                     <div className="border-t border-gray-100 pt-6">
                       <div className="text-sm text-gray-500 mb-2">Live Demo:</div>
                       <a 
@@ -486,7 +493,6 @@ export default function HHComputerSolutions() {
             </div>
 
             <div className="grid lg:grid-cols-2 gap-16">
-              {/* Contact Info */}
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-8">Get in Touch</h3>
                 
@@ -538,19 +544,9 @@ export default function HHComputerSolutions() {
                 </div>
               </div>
               
-              {/* Contact Form */}
               <div className="bg-gray-50 rounded-2xl p-8">
                 <div className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <div className="block text-sm font-medium text-gray-700 mb-2">First Name</div>
-                      <input 
-                        type="text" 
-                        id="firstName"
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
-                        placeholder="John"
-                      />
-                    </div>
                     <div>
                       <div className="block text-sm font-medium text-gray-700 mb-2">Last Name</div>
                       <input 
@@ -636,14 +632,16 @@ ${firstName} ${lastName}`;
         <footer className="bg-gray-900 text-white py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {/* Company Info */}
               <div className="md:col-span-2">
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
-                    <Image width={36} height={36} 
+                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden relative">
+                    <Image 
                       src="/hh-logo.png" 
                       alt="H&H Logo" 
-                      className="w-9 h-9 object-contain"
+                      width={36} 
+                      height={36}
+                      className="object-contain"
+                      onError={() => console.log('Footer logo failed to load')}
                     />
                   </div>
                   <span className="text-xl font-bold">H&H Computer Solutions</span>
@@ -654,7 +652,6 @@ ${firstName} ${lastName}`;
                 </p>
               </div>
               
-              {/* Contact */}
               <div>
                 <h3 className="text-lg font-semibold mb-4">Contact</h3>
                 <ul className="space-y-2 text-gray-400">
