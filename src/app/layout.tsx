@@ -7,11 +7,36 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "H&H Computer Solutions - Professional Web Development",
   description: "Professional web development services that help businesses succeed online. From concept to deployment, we create websites that work.",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+  icons: [
+    {
+      rel: 'icon',
+      url: '/favicon-light.png',
+      media: '(prefers-color-scheme: light)',
+      sizes: '32x32',
+      type: 'image/png',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon-dark.png', 
+      media: '(prefers-color-scheme: dark)',
+      sizes: '32x32',
+      type: 'image/png',
+    },
+    {
+      rel: 'icon',
+      url: '/favicon.ico', // Fallback for older browsers
+      sizes: 'any',
+    },
+    {
+      rel: 'shortcut icon',
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon',
+      url: '/favicon-light.png',
+      sizes: '180x180',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -21,10 +46,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-      </head>
       <body className={inter.className}>{children}</body>
     </html>
   );
